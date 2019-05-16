@@ -1,0 +1,11 @@
+.table-title{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    h1{
+        font-size: 25px;
+    }
+}
