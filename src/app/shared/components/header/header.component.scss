@@ -1,0 +1,41 @@
+.header{
+    box-shadow: 0 0 4px rgba(51,51,51,.15);
+    min-height: 62px;
+    position: sticky;
+    top: 0;
+
+    &_logo{
+        .box_logo{
+            margin-left: 16px;
+            width: 120px;
+
+            img{
+                width: 100%;
+            }
+        }
+    }
+
+    &_options{
+        display: block;
+
+        &__buttons{
+            a{
+                margin: 16px;
+            }
+        }
+    }
+
+    &_hamburger{
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .header_options{
+        display: none;
+    }
+
+    .header_hamburger{
+        display: block;
+    }
+}
