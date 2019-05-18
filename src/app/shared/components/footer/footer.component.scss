@@ -1,0 +1,44 @@
+@import "../../../../assets/styles/main.scss";
+
+.footer{
+    color: white; 
+    &_main{
+        background-color: $color-primary;
+        padding: 3em 0;
+
+        .box_logo{
+            margin: 0 auto;
+            width: 200px;
+
+            img{
+                width: 100%;
+            }
+        }
+
+        .box_information{
+            min-width: 300px;
+            padding: 10px 0;
+
+            h5{
+                color: white;
+            }
+            div{
+                margin-top: 8px;
+
+                a{
+                    i{
+                        font-size: 30px;
+                        margin: 0 5px;
+                    }
+                    &:hover{
+                        color: $color-accent;
+                    }
+                }
+            }
+        }
+    }
+    &_second{
+        background-color: $color-primary-darker;
+        padding: 1.8em 0;
+    }
+}
