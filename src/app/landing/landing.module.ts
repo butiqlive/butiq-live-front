@@ -6,7 +6,7 @@ import { ViewsModule as LandingViewsModule } from './views/views.module';
   declarations: [],
   imports: [
     CommonModule,
-    LandingViewsModule
+    LandingViewsModule,
   ]
 })
 export class LandingModule { }

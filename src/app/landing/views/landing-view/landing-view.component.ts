@@ -7,7 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LandingViewComponent implements OnInit {
 
-  constructor() { }
+  public firstSimpleHero: any;
+  public secondSimpleHero: any;
+
+  constructor() { 
+    this.firstSimpleHero = {
+      contentToLeft: true,
+      contentToRight: false,
+      backgroundColorGray: false
+    };
+    this.secondSimpleHero = {
+      contentToLeft: false,
+      contentToRight: true,
+      backgroundColorGray: true
+    }
+  }
 
   ngOnInit() {
   }
