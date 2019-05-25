@@ -2,7 +2,7 @@
   <nz-form-item>
     <nz-form-label nzRequired nzFor="email">Correo electrónico</nz-form-label>
     <nz-form-control>
-      <nz-input-group [nzPrefix]="prefixUser">
+      <nz-input-group [nzPrefix]="prefixMail">
         <input type="text" nz-input formControlName="email" />
       </nz-input-group>
     </nz-form-control>
@@ -29,5 +29,5 @@
     </nz-form-control>
   </nz-form-item>
 </form>
-<ng-template #prefixUser><i nz-icon type="user"></i></ng-template>
+<ng-template #prefixMail><i nz-icon type="mail"></i></ng-template>
 <ng-template #prefixLock><i nz-icon type="lock"></i></ng-template>

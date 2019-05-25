@@ -1,3 +1,49 @@
-<p>
-  signup-form works!
-</p>
+<form nz-form [nzLayout]="'horizontal'" [formGroup]="signupFG" (ngSubmit)="onSignup()" class="signup-form">
+  <nz-form-item>
+    <nz-form-label nzRequired nzFor="name">Nombres</nz-form-label>
+    <nz-form-control>
+      <nz-input-group [nzPrefix]="prefixUser">
+        <input type="text" nz-input formControlName="name" />
+      </nz-input-group>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label nzRequired nzFor="lastName">Apellidos</nz-form-label>
+    <nz-form-control>
+      <nz-input-group [nzPrefix]="prefixUser">
+        <input type="text" nz-input formControlName="lastName"/>
+      </nz-input-group>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label nzRequired nzFor="email">Correo electrónico</nz-form-label>
+    <nz-form-control>
+      <nz-input-group [nzPrefix]="prefixMail">
+        <input type="text" nz-input formControlName="email" />
+      </nz-input-group>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label nzRequired nzFor="password">Contraseña</nz-form-label>
+    <nz-form-control>
+      <nz-input-group [nzPrefix]="prefixLock">
+        <input type="password" nz-input formControlName="password"/>
+      </nz-input-group>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control>
+      <label nz-checkbox formControlName="terms">
+        <span>Acepto ....</span>
+      </label>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control>
+      <button nz-button [nzType]="'primary'" class="signup-form__button">Sign up</button>
+    </nz-form-control>
+  </nz-form-item>
+</form>
+<ng-template #prefixUser><i nz-icon type="user"></i></ng-template>
+<ng-template #prefixMail><i nz-icon type="mail"></i></ng-template>
+<ng-template #prefixLock><i nz-icon type="lock"></i></ng-template>
