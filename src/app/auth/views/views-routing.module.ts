@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ViewsComponent } from './views.component';
 import { LoginViewComponent } from './login-view/login-view.component';
+import { SignupViewComponent } from './signup-view/signup-view.component';
+import { ResetPasswordViewComponent } from './reset-password-view/reset-password-view.component';
 
 const routes: Routes = [
   {
@@ -11,6 +13,14 @@ const routes: Routes = [
       {
         path: '',
         component: LoginViewComponent
+      },
+      {
+        path: 'signup',
+        component: SignupViewComponent
+      },
+      {
+        path: 'reset-password',
+        component: ResetPasswordViewComponent
       }
     ]
   }

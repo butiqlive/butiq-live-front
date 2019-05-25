@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -11,12 +12,13 @@ import { FooterComponent } from './components/footer/footer.component';
   ],
   imports: [
     CommonModule,
-    NgZorroAntdModule
+    NgZorroAntdModule,
+    RouterModule
   ],
   exports: [
     NgZorroAntdModule,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
   ]
 })
 export class SharedModule { }
