@@ -15,7 +15,6 @@ export class HeaderComponent implements OnInit {
     
     this.router.events.subscribe((val) => {
       if(val instanceof NavigationEnd) {
-        console.log('lala => ', val);
         if (val.url.indexOf('home') > -1 || val.url.indexOf('account') > -1){
           this.userIsLogged = true;
         }
