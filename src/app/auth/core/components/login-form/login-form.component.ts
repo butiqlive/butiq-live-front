@@ -25,6 +25,8 @@ export class LoginFormComponent implements OnInit {
     this.reset();
   }
 
-  onLogin(){}
+  onLogin(){
+    this.router.navigateByUrl('/home');
+  }
 
 }

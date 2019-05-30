@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'butiqlive-header',
@@ -7,7 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  public userIsLogged: boolean;
+
+  constructor(private router: Router) {
+    this.userIsLogged = false;
+    
+    this.router.events.subscribe((val) => {
+      if(val instanceof NavigationEnd) {
+        console.log('lala => ', val);
+        if (val.url.indexOf('home') > -1 || val.url.indexOf('account') > -1){
+          this.userIsLogged = true;
+        }
+      }
+    })
+  }
 
   ngOnInit() {
   }

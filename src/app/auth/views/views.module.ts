@@ -7,7 +7,6 @@ import { SignupViewComponent } from './signup-view/signup-view.component';
 import { ResetPasswordViewComponent } from './reset-password-view/reset-password-view.component';
 import { CoreModule as AuthCoreModule } from '../core/core.module';
 import { SharedModule as AuthSharedModule } from '../shared/shared.module';
-import { SharedModule as AppSharedModule } from '../../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -20,8 +19,7 @@ import { SharedModule as AppSharedModule } from '../../shared/shared.module';
     CommonModule,
     ViewsRoutingModule,
     AuthCoreModule,
-    AuthSharedModule,
-    AppSharedModule
+    AuthSharedModule
   ]
 })
 export class ViewsModule { }

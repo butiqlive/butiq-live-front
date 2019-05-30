@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 @NgModule({
@@ -13,12 +14,17 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     NgZorroAntdModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule
   ],
   exports: [
-    NgZorroAntdModule,
     HeaderComponent,
     FooterComponent,
+    NgZorroAntdModule,
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule
   ]
 })
 export class SharedModule { }
