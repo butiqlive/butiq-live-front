@@ -15,6 +15,21 @@ export class VideosCarouselComponent implements OnInit {
   ngOnInit() {
     this.config = {
       slidesPerView: 4,
+      spaceBetween: 20,
+      breakpoints: {
+        320: {
+          slidesPerView: 1,
+          spaceBetween: 10
+        },
+        480: {
+          slidesPerView: 2,
+          spaceBetween: 20
+        },
+        640: {
+          slidesPerView: 3,
+          spaceBetween: 20
+        }
+      },
       pagination: {
         el: '.swiper-pagination',
       },
@@ -23,7 +38,6 @@ export class VideosCarouselComponent implements OnInit {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
       },
-      spaceBetween: 30
     };
   }
 
