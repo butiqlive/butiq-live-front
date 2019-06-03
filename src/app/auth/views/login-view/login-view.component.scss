@@ -2,4 +2,14 @@
     max-width: 300px;
     width: 100%;
     margin: auto;
+
+    &__content{
+        padding: 48px 0;
+        
+        h1{
+            font-size: 1.25rem;
+            margin-bottom: 32px;
+            margin-top: 16px;
+        }
+    }
 }

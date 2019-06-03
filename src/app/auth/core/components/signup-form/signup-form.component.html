@@ -1,5 +1,5 @@
 <form nz-form [nzLayout]="'horizontal'" [formGroup]="signupFG" (ngSubmit)="onSignup()" class="signup-form">
-  <nz-form-item>
+  <nz-form-item class="signup-form__item">
     <nz-form-label nzRequired nzFor="name">Nombres</nz-form-label>
     <nz-form-control>
       <nz-input-group [nzPrefix]="prefixUser">
@@ -7,7 +7,7 @@
       </nz-input-group>
     </nz-form-control>
   </nz-form-item>
-  <nz-form-item>
+  <nz-form-item class="signup-form__item">
     <nz-form-label nzRequired nzFor="lastName">Apellidos</nz-form-label>
     <nz-form-control>
       <nz-input-group [nzPrefix]="prefixUser">
@@ -15,7 +15,7 @@
       </nz-input-group>
     </nz-form-control>
   </nz-form-item>
-  <nz-form-item>
+  <nz-form-item class="signup-form__item">
     <nz-form-label nzRequired nzFor="email">Correo electrónico</nz-form-label>
     <nz-form-control>
       <nz-input-group [nzPrefix]="prefixMail">
@@ -23,7 +23,7 @@
       </nz-input-group>
     </nz-form-control>
   </nz-form-item>
-  <nz-form-item>
+  <nz-form-item class="signup-form__item">
     <nz-form-label nzRequired nzFor="password">Contraseña</nz-form-label>
     <nz-form-control>
       <nz-input-group [nzPrefix]="prefixLock">
@@ -31,16 +31,22 @@
       </nz-input-group>
     </nz-form-control>
   </nz-form-item>
-  <nz-form-item>
+  <nz-form-item class="signup-form__item">
     <nz-form-control>
-      <label nz-checkbox formControlName="terms">
-        <span>Acepto ....</span>
-      </label>
+      <button nz-button [nzSize]="large" [nzType]="'primary'" class="signup-form__button">Registrarme</button>
     </nz-form-control>
   </nz-form-item>
-  <nz-form-item>
+  <nz-form-item class="signup-form__item">
+    <p>
+      <span>Al registrarme acepto los 
+        <a href="">Términos de Uso</a> y 
+        <a href="">Políticas de Privacidad</a> de ButiqLive.
+      </span>
+    </p>
+  </nz-form-item>
+  <nz-form-item class="signup-form__item text-center">
     <nz-form-control>
-      <button nz-button [nzType]="'primary'" class="signup-form__button">Sign up</button>
+      <span>¿Ya tienes una cuenta? <a [routerLink]="['/auth']">Iniciar Sesión</a></span>
     </nz-form-control>
   </nz-form-item>
 </form>
