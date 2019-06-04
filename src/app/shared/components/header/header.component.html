@@ -5,16 +5,17 @@
     </div>
   </div>
   <div class="header_options flex-row-layout ai-center">
-    <div class="header_options__buttons" *ngIf="!userIsLogged">
+    <div *ngIf="!userIsLogged" class="header_options__buttons" >
       <a [routerLink]="['/auth']" class="ant-btn ant-btn-default">Iniciar Sesión</a>
       <a [routerLink]="['/auth/signup']" class="ant-btn ant-btn-primary">Entrena GRATIS</a>
     </div>
-    <div *ngIf="userIsLogged">
-      <nz-dropdown [nzPlacement]="'bottomRight'" class="header_dropdown">
+    <div *ngIf="userIsLogged" class="header_options__buttons" >
+      <a [routerLink]="['/home']" class="ant-btn ant-btn-default">Videos</a>
+      <nz-dropdown class="header_dropdown" [nzPlacement]="'bottomRight'">
         <a nz-dropdown> Mi cuenta <i nz-icon type="down"></i></a>
         <ul nz-menu nzSelectable>
           <li nz-menu-item>
-            <a [routerLink]="['/account/membership']">Cuenta</a>
+            <a [routerLink]="['/account/contact']">Cuenta</a>
           </li>
           <li nz-menu-item>
             <a [routerLink]="['/']">Cerrar Sesión</a>
@@ -36,10 +37,11 @@
       </ul>
     </nz-dropdown>
     <nz-dropdown [nzPlacement]="'bottomRight'" *ngIf="userIsLogged" class="header_dropdown">
+      <a [routerLink]="['/home']">Videos</a>
       <a nz-dropdown> Mi cuenta <i nz-icon type="down"></i></a>
       <ul nz-menu nzSelectable>
         <li nz-menu-item>
-          <a [routerLink]="['/account/membership']">Cuenta</a>
+          <a [routerLink]="['/account/contact']">Cuenta</a>
         </li>
         <li nz-menu-item>
           <a [routerLink]="['/']">Cerrar Sesión</a>

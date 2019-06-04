@@ -1,8 +1,13 @@
 .sidebar{
-    background-color: #F7F7F7;
+    width: 160px;
+    float: right;
 
     &__avatar{
+        background-color: #fff;
+        border-radius: 50%;
+        height: 100px;
         margin-bottom: 30px;
+        width: 100px;
     }
 
     &__nav{
@@ -10,7 +15,11 @@
             padding: 16px 0;
 
             a{
+                font-weight: 500;
 
+                &:hover{
+                    text-decoration: underline;
+                }
             }
         }
     }
