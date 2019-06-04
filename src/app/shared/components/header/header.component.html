@@ -10,46 +10,41 @@
       <a [routerLink]="['/auth/signup']" class="ant-btn ant-btn-primary">Entrena GRATIS</a>
     </div>
     <div *ngIf="userIsLogged">
-      <ul nz-menu [nzMode]="'horizontal'">
-        <li nz-submenu>
-          <span title>
-            Menu <i nz-icon nzType="menu-fold" nzTheme="outline"></i>
-          </span>
-          <ul>
-            <li nz-menu-group>
-              <a [routerLink]="['/account/membership']" class="ant-btn ant-btn-default">Cuenta</a>
-            </li>
-            <li nz-menu-group>
-              <a [routerLink]="['/']" class="ant-btn ant-btn-default">Cerrar Sesión</a>
-            </li>
-          </ul>
-        </li>
-      </ul>
+      <nz-dropdown [nzPlacement]="'bottomRight'" class="header_dropdown">
+        <a nz-dropdown> Mi cuenta <i nz-icon type="down"></i></a>
+        <ul nz-menu nzSelectable>
+          <li nz-menu-item>
+            <a [routerLink]="['/account/membership']">Cuenta</a>
+          </li>
+          <li nz-menu-item>
+            <a [routerLink]="['/']">Cerrar Sesión</a>
+          </li>
+        </ul>
+      </nz-dropdown>
     </div>
   </div>
   <div class="header_hamburger">
-    <ul nz-menu [nzMode]="'horizontal'">
-      <li nz-submenu>
-        <span title>
-          Menú <i nz-icon nzType="menu-fold" nzTheme="outline"></i>
-        </span>
-        <ul *ngIf="!userIsLogged">
-          <li nz-menu-group>
-            <a [routerLink]="['/auth']" class="ant-btn ant-btn-default">Iniciar Sesión</a>
-          </li>
-          <li nz-menu-group>
-            <a [routerLink]="['/auth/signup']" class="ant-btn ant-btn-primary">Entrena GRATIS</a>
-          </li>
-        </ul>
-        <ul *ngIf="userIsLogged">
-          <li nz-menu-group>
-            <a [routerLink]="['/account/membership']" class="ant-btn ant-btn-default">Cuenta</a>
-          </li>
-          <li nz-menu-group>
-            <a [routerLink]="['/']" class="ant-btn ant-btn-default">Cerrar Sesión</a>
-          </li>
-        </ul>
-      </li>
-    </ul>
+    <nz-dropdown [nzPlacement]="'bottomRight'" *ngIf="!userIsLogged" class="header_dropdown">
+      <a nz-dropdown> Menú <i nz-icon type="down"></i></a>
+      <ul nz-menu nzSelectable>
+        <li nz-menu-item>
+          <a [routerLink]="['/auth']">Iniciar Sesión</a>
+        </li>
+        <li nz-menu-item>
+          <a [routerLink]="['/auth/signup']">Entrena GRATIS</a>
+        </li>
+      </ul>
+    </nz-dropdown>
+    <nz-dropdown [nzPlacement]="'bottomRight'" *ngIf="userIsLogged" class="header_dropdown">
+      <a nz-dropdown> Mi cuenta <i nz-icon type="down"></i></a>
+      <ul nz-menu nzSelectable>
+        <li nz-menu-item>
+          <a [routerLink]="['/account/membership']">Cuenta</a>
+        </li>
+        <li nz-menu-item>
+          <a [routerLink]="['/']">Cerrar Sesión</a>
+        </li>
+      </ul>
+    </nz-dropdown>
   </div>
 </header>
