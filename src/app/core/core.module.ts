@@ -3,12 +3,10 @@ import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { SharedModule as AppSharedModule } from '../shared/shared.module';
 
-import { ApiService } from './services/shared/api.service';
-import { JwtService } from './services/shared/jwt.service';
-import { LocalStorageService } from './services/shared/local-storage.service';
-import { AuthService } from './services/auth.service';
-import { UserService } from './services/user.service';
+import { ServicesModule } from './services/services.module';
+import { UtilsModule } from './utils/utils.module';
 
 @NgModule({
   declarations: [],
@@ -16,14 +14,13 @@ import { UserService } from './services/user.service';
     CommonModule,
     BrowserModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    AppSharedModule,
+    ServicesModule,
+    UtilsModule
   ],
-  providers: [
-    ApiService,
-    JwtService,
-    LocalStorageService,
-    AuthService,
-    UserService
+  exports: [
+    AppSharedModule
   ]
 })
 export class CoreModule { }

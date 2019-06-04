@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/core/services/auth.service';
+import { NotificationUtil } from 'src/app/core/utils/notification.util';
 import { Router } from '@angular/router';
 
 @Component({
@@ -13,7 +14,7 @@ export class SignupFormComponent implements OnInit {
   public signupFG: FormGroup;
 
   constructor(private fb: FormBuilder, private authService: AuthService,
-    private router: Router) { }
+    private notification : NotificationUtil, private router: Router) { }
 
   reset(){
     this.signupFG = this.fb.group({
@@ -46,11 +47,12 @@ export class SignupFormComponent implements OnInit {
         },
         (error: any) =>{
           console.log('error => ', error);
+          this.notification.error(error.message, 'Hubo un inconveniente');
         }
       )
 
     } else{
-      console.log('Formulario inválido', this.signupFG.value);
+      this.notification.warning('Verifica los campos e intenta nuevamente', 'Formulario inválido');
     }
   }
 
