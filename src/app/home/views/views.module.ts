@@ -5,11 +5,12 @@ import { ViewsRoutingModule } from './views-routing.module';
 import { HomeViewComponent } from './home-view/home-view.component';
 import { CoreModule as HomeCoreModule } from '../core/core.module';
 import { SharedModule as HomeSharedModule } from '../shared/shared.module';
+import { VideoViewComponent } from './video-view/video-view.component';
 
 @NgModule({
   declarations: [
     ViewsComponent, 
-    HomeViewComponent
+    HomeViewComponent, VideoViewComponent
   ],
   imports: [
     CommonModule,
