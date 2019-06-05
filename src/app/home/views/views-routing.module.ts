@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ViewsComponent } from './views.component';
 import { HomeViewComponent } from './home-view/home-view.component';
 import { VideoViewComponent } from './video-view/video-view.component';
+import { CollectionViewComponent } from './collection-view/collection-view.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
       {
         path: 'video',
         component: VideoViewComponent
+      },
+      {
+        path: 'collection',
+        component: CollectionViewComponent
       }
     ]
   }
