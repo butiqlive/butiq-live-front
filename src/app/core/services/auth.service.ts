@@ -15,8 +15,8 @@ export class AuthService {
         return this.api.post('auth/signup', request);
     }
 
-    login(email :string, password: string){
-        
+    login(request: any){
+        return this.api.post('auth/login', request);
     }
 
     logout(){
