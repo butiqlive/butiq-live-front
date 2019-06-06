@@ -1,7 +1,7 @@
 <div class="video-card">
   <a [routerLink]="['/home/video']">
     <div class="video-card__image">
-      <img src="/assets/images/butiqlive-logo.png" [alt]="video.title">
+      <img [src]="video.previewImage" [alt]="video.title">
     </div>
     <div class="video-card__detail">
       <h2>{{video.title}}</h2>
