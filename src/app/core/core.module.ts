@@ -7,6 +7,7 @@ import { SharedModule as AppSharedModule } from '../shared/shared.module';
 
 import { ServicesModule } from './services/services.module';
 import { UtilsModule } from './utils/utils.module';
+import { GuardsModule } from './guards/guards.module';
 
 @NgModule({
   declarations: [],
@@ -17,7 +18,8 @@ import { UtilsModule } from './utils/utils.module';
     HttpClientModule,
     AppSharedModule,
     ServicesModule,
-    UtilsModule
+    UtilsModule,
+    GuardsModule
   ],
   exports: [
     AppSharedModule
