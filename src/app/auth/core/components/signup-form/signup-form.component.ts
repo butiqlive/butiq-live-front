@@ -32,7 +32,6 @@ export class SignupFormComponent implements OnInit {
 
   onSignup(){
     if(this.signupFG.valid){
-
       const signupRequest = {
         name: this.signupFG.value.name,
         lastName: this.signupFG.value.lastName,
@@ -43,27 +42,11 @@ export class SignupFormComponent implements OnInit {
         }
       }
 
-      const loginRequest = {
-        email: this.signupFG.value.email,
-        password: this.signupFG.value.password
-      }
-
       this.authService.signup(signupRequest).subscribe(
         (response: any) => {
           if(response.data.createdUser){
-            this.authService.login(loginRequest)
-              .subscribe(
-                (resp: any) => {
-                  if(resp.data){
-                    this.jwt.setToken(resp.data.token);
-                    this.router.navigateByUrl('/home');
-                    this.notification.success('', 'Bienvenidx!');
-                  }
-                },
-                (err: any) => {
-                  this.notification.error(err.message, 'Hubo un inconveniente');
-                }
-              );
+            this.router.navigateByUrl('/auth');
+            this.notification.success('Cuenta creada exitosamente', 'Buena!');
           }
         },
         (error: any) =>{

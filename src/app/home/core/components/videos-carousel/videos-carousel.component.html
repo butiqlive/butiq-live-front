@@ -1,31 +1,13 @@
 <div class="videos-carousel">
   <div class="videos-carousel__header">
-    <h2>Categoría</h2>
-    <p>Descripción de la categoría</p>
+    <h2>{{data.name}}</h2>
+    <p>{{data.description}}</p>
   </div>
   <div class="videos-carousel__content">
     <swiper [config]="config">
       <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <video-card></video-card>
-        </div>
-        <div class="swiper-slide">
-          <video-card></video-card>
-        </div>
-        <div class="swiper-slide">
-          <video-card></video-card>
-        </div>
-        <div class="swiper-slide">
-          <video-card></video-card>
-        </div>
-        <div class="swiper-slide">
-          <video-card></video-card>
-        </div>
-        <div class="swiper-slide">
-          <video-card></video-card>
-        </div>
-        <div class="swiper-slide">
-          <video-card></video-card>
+        <div class="swiper-slide" *ngFor="let video of data.videos">
+          <video-card [video]="video"></video-card>
         </div>
       </div>
     </swiper>

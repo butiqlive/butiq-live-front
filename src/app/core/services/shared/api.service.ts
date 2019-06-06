@@ -20,7 +20,7 @@ export class ApiService {
 
         let token = this.jwt.getToken();
         if( token && token != ''){
-            headers = headers.append('Authorization', `Token ${this.jwt.getToken()}`);
+            headers = headers.append('Authorization', `${this.jwt.getToken()}`);
         }
         return headers;
     }

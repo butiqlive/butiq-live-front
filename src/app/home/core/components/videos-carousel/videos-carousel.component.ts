@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 declare var Swiper: any;
 
 @Component({
@@ -7,6 +7,7 @@ declare var Swiper: any;
   styleUrls: ['./videos-carousel.component.scss']
 })
 export class VideosCarouselComponent implements OnInit {
+  @Input() public data: any;
 
   public config: any;
 

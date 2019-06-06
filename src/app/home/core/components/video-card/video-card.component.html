@@ -1,11 +1,15 @@
 <div class="video-card">
   <a [routerLink]="['/home/video']">
     <div class="video-card__image">
-      <img src="/assets/images/butiqlive-logo.png" alt="">
+      <img src="/assets/images/butiqlive-logo.png" [alt]="video.title">
     </div>
     <div class="video-card__detail">
-      <h2>Título</h2>
-      <p>Instructor</p>
+      <h2>{{video.title}}</h2>
+      <p>
+        <span *ngFor="let i of video.instructors; let isLast=last">
+          {{i.name}} {{isLast ? '' : ', '}}
+        </span>
+      </p>
     </div>
   </a>
 </div>
