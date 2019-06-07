@@ -49,9 +49,9 @@
           <nz-form-item class="contact-form_item">
             <nz-form-label>País</nz-form-label>
             <nz-form-control>
-              <nz-select style="width: 100%;" formControlName="country" nzPlaceHolder="Selecciona" nzAllowClear>
-                <nz-option nzValue="VZ" nzLabel="Venezuela"></nz-option>
-                <nz-option nzValue="PE" nzLabel="Perú"></nz-option>
+              <nz-select style="width: 100%;" formControlName="country" nzPlaceHolder="Selecciona" nzAllowClear >
+                <nz-option *ngFor="let country of countries" [nzValue]="country.id" 
+                [nzLabel]="country.name"></nz-option>
               </nz-select>
             </nz-form-control>
           </nz-form-item>

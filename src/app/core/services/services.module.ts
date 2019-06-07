@@ -6,6 +6,9 @@ import { LocalStorageService } from './shared/local-storage.service';
 import { AuthService } from './auth.service';
 import { UserService } from './user.service';
 import { VideoService } from './video.service';
+import { CountryService } from './country.service';
+
+
 
 @NgModule({
     providers: [
@@ -14,7 +17,9 @@ import { VideoService } from './video.service';
         LocalStorageService,
         AuthService,
         UserService,
-        VideoService
+        VideoService,
+        CountryService,
+        
     ]
 })
 export class ServicesModule{ }

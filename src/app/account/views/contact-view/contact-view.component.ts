@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-contact-view',
   templateUrl: './contact-view.component.html',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactViewComponent implements OnInit {
 
+  public countries: any;
+
   constructor() { }
 
   ngOnInit() {
+   
   }
+
+  onInit(){
+    
+
+    
+  }
+
+
 
 }
