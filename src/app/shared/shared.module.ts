@@ -6,6 +6,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { SwiperModule } from 'ngx-useful-swiper';
+import { PipesModule } from './pipes/pipes.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { SwiperModule } from 'ngx-useful-swiper';
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
-    SwiperModule
+    SwiperModule,
+    PipesModule
   ],
   exports: [
     HeaderComponent,
@@ -27,7 +29,8 @@ import { SwiperModule } from 'ngx-useful-swiper';
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
-    SwiperModule
+    SwiperModule,
+    PipesModule
   ]
 })
 export class SharedModule { }

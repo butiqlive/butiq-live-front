@@ -1,5 +1,5 @@
 <div class="video-card">
-  <a [routerLink]="['/home/video']">
+  <div class="video-card__container" (click)="goToVideo(video)">
     <div class="video-card__image">
       <img [src]="video.previewImage" [alt]="video.title">
     </div>
@@ -11,5 +11,5 @@
         </span>
       </p>
     </div>
-  </a>
+  </div>
 </div>

@@ -1,0 +1,10 @@
+.video-view{
+    &__content{
+        width: 90%;
+        margin: auto;
+
+        iframe{
+            min-height: 35vw;
+        }
+    }
+}
