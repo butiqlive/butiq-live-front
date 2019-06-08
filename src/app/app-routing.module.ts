@@ -7,16 +7,16 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: 'src/app/landing/landing.module#LandingModule',
-    canActivate: [
+    /* canActivate: [
       HomeGuard
-    ]
+    ] */
   },
   {
     path: 'auth',
     loadChildren: 'src/app/auth/auth.module#AuthModule',
-    canActivate: [
+    /* canActivate: [
       HomeGuard
-    ]
+    ] */
   },
   {
     path: 'home',
