@@ -9,5 +9,9 @@ export class VideoService {
     getVideosByCategories(){
         return this.api.get('api/home');
     }
+
+    getIntroductionVideos(){
+        return this.api.get('api/home/intro');
+    }
     
 }

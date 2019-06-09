@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  backendUrl: 'http://localhost:8000/'
+  backendUrl: 'http://ec2-18-225-7-129.us-east-2.compute.amazonaws.com:80/'
 };
 
 /*
