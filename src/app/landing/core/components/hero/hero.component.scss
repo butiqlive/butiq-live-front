@@ -15,7 +15,6 @@
 
             .box_text{
                 width: 90%;
-
                 p{
                     width: 90%;
                     font-size: 1.5rem;
@@ -35,13 +34,12 @@
     
         &__image{
             order: 2;
-
             background-image: url('../../../../../assets/images/landing/hero.png');
             background-position: center;
             background-size: cover;
             height: 100vh;
             width: 100vw;
-
+            max-height: 1000px;
         }
     }
 }

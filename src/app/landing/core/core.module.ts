@@ -5,11 +5,13 @@ import { PresentationVideosComponent } from './components/presentation-videos/pr
 import { SimpleHeroComponent } from './components/simple-hero/simple-hero.component';
 import { TestimoniesComponent } from './components/testimonies/testimonies.component';
 import { SharedModule as AppSharedModule } from '../../shared/shared.module';
+import { HowItWorksComponent } from './components/how-it-works/how-it-works.component';
 
 @NgModule({
   declarations: [
     HeroComponent,
     SimpleHeroComponent,
+    HowItWorksComponent,
     PresentationVideosComponent,
     TestimoniesComponent
   ],
@@ -20,6 +22,7 @@ import { SharedModule as AppSharedModule } from '../../shared/shared.module';
   exports:[
     HeroComponent,
     PresentationVideosComponent,
+    HowItWorksComponent,
     SimpleHeroComponent,
     TestimoniesComponent
   ]
