@@ -12,22 +12,26 @@ export class TestimoniesComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  reset(){
     this.config = {
       slidesPerView: 1,
+      spaceBetween: 10,
       paginationClickable: true,
       pagination: {
         el: '.swiper-pagination',
         dynamicBullets: true,
       },
-      spaceBetween: 10,
       /* autoplay: {
-        delay: 3000,
+        delay: 10000,
         disableOnInteraction: false,
       } */
     };
 
     this.testimoniesList = new Array(5);
+  }
+
+  ngOnInit() {
+    this.reset();
   }
 
 }

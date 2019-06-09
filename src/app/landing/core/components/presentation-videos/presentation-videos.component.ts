@@ -9,12 +9,13 @@ import { VideoService } from 'src/app/core/services/video.service';
 export class PresentationVideosComponent implements OnInit {
 
   public listOfIntroductionVideos: any;
-  public vimeoURL: string = "https://player.vimeo.com/video/333431595";
+  public vimeoURL: string;
   public config: any;
 
   constructor(private videoService: VideoService) { }
 
   reset(){
+    this.vimeoURL = "https://player.vimeo.com/video/";
     this.config = {
       slidesPerView: 4,
       spaceBetween: 10,
@@ -34,15 +35,13 @@ export class PresentationVideosComponent implements OnInit {
         prevEl: '.swiper-button-prev',
       }
     };
-
-    this.listOfIntroductionVideos = new Array(5);
   }
 
   getVideos(){
     this.videoService.getIntroductionVideos()
       .subscribe(
         (response: any)=>{
-          console.log('introduction videos => ', response.data);
+          this.listOfIntroductionVideos = response.data;
         },
         (error: any)=>{
           console.log('error => ', error);
