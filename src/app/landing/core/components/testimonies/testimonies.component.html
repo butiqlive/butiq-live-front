@@ -1,3 +1,30 @@
-<p>
-  testimonies works!
-</p>
+<section class="testimonies">
+  <div class="testimonies__title">
+    <h2>Mira lo que dicen de nosotros</h2>
+  </div>
+  <div class="testimonies__content">
+    <swiper [config]="config">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide" *ngFor="let item of testimoniesList">
+          <div class="testimonies__content__item flex-row-layout jc-center">
+            <div>
+              <div class="testimonies__content__item_image">
+                <img src="../../../../../assets/images/butiqlive-logo-negativo.png" alt="Imagen">
+              </div>
+            </div>
+            <div>
+              <div class="testimonies__content__item_text">
+                <p>"No tenía tiempo para entrenar por mis clases de la universidad, con Butiq Live he encontrado una forma rápida y divertida de mantenerme activa"</p>
+                <div class="who">
+                  <p>Diana Navarro</p>
+                  <p>Estudiante 22 años</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </swiper>
+  </div>
+</section>

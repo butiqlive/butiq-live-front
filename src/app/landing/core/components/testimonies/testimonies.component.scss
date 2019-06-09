@@ -1,0 +1,45 @@
+@import "../../../../../assets/styles/1-settings/colors.scss";
+
+.testimonies{
+    padding: 40px 0;
+
+    &__title{
+        margin-bottom: 40px;
+        text-align: center;
+
+        h2{
+            color: $color-accent;
+            margin: 0;
+        }
+    }   
+
+    &__content{
+
+        &__item{
+            padding: 20px 0;
+
+            &_image{
+                max-width: 300px;
+                width: 90%;
+                margin: 0 auto 30px;
+    
+                img{
+                    width: 100%;
+                }
+            }
+    
+            &_text{
+                max-width: 500px;
+                width: 90%;
+                margin: auto;
+    
+                .who{
+                    p{
+                        margin: 0;
+                    }
+                }
+            }
+        }
+        
+    }
+}
