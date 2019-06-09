@@ -22,7 +22,7 @@ export class PresentationVideosComponent implements OnInit {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
       },
-      spaceBetween: 30
+      spaceBetween: 10
     };
   }
 

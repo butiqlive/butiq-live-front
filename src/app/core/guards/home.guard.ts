@@ -13,7 +13,7 @@ export class HomeGuard implements CanActivate {
             this.router.navigateByUrl('/home');
             return true;
         }else{
-            this.router.navigateByUrl('/');
+            return true;
         }
     }
 

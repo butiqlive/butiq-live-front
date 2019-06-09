@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
+import { AuthService } from 'src/app/core/services/auth.service';
+import { JwtService } from 'src/app/core/services/shared/jwt.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'butiqlive-header',
@@ -10,19 +12,23 @@ export class HeaderComponent implements OnInit {
 
   public userIsLogged: boolean;
 
-  constructor(private router: Router) {
-    this.userIsLogged = false;
-    
-    this.router.events.subscribe((val) => {
-      if(val instanceof NavigationEnd) {
-        if (val.url.indexOf('home') > -1 || val.url.indexOf('account') > -1){
-          this.userIsLogged = true;
-        }
-      }
-    })
+  constructor(private authService: AuthService, private jwt: JwtService, private router: Router) {
+    this.userIsLogged = this.jwt.getToken() ? true : false;
   }
 
   ngOnInit() {
+  }
+
+  goToHome(){
+    if (this.userIsLogged){
+      this.router.navigateByUrl('/home');
+    } else {
+      this.router.navigateByUrl('/');
+    }
+  }
+
+  onLogout(){
+    this.authService.logout();
   }
 
 }

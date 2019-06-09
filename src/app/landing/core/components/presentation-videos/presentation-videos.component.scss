@@ -1,5 +1,26 @@
+@import "../../../../../assets/styles/1-settings/colors.scss";
+
 .presentation-videos{
     text-align: center;
+    padding: 40px 0;
+
+    &__title{
+        margin-bottom: 40px;
+
+        h2{
+            color: $color-accent;
+            margin: 0;
+        }
+
+        p{
+            margin: 0;
+        }
+    }
+
+    &__content{
+        width: 90%;
+        margin: auto;
+    }
 }
 
 .box_gray{
