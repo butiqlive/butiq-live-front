@@ -8,7 +8,11 @@ export class UserService {
 
     constructor(public api: ApiService, public storage: LocalStorageService, public router: Router){}
 
-    getById(request: any){
-        return this.api.post('api/users/getById', request);
+    getById(){
+        return this.api.get('api/users/getById');
+    }
+
+    updateUser(request: any){
+        return this.api.put('api/users/', request);
     }
 }

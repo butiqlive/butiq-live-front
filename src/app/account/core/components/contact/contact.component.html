@@ -1,13 +1,13 @@
 <section class="contact-form">
   <h1>Información de Contacto</h1>
-  <form nz-form [formGroup]="contactFG" (ngSubmit)="save()">
+  <form nz-form [formGroup]="contactFG" (ngSubmit)="onSubmit()">
     <div class="contact-form__main">
       <div nz-row [nzGutter]="24">
         <div nz-col [nzSpan]="12">
           <nz-form-item class="contact-form_item">
             <nz-form-label>Nombres</nz-form-label>
             <nz-form-control>
-              <input type="text" nz-input formControlName="firstName"/>
+              <input type="text" nz-input formControlName="name"/>
             </nz-form-control>
           </nz-form-item>
         </div>
@@ -31,7 +31,7 @@
           <nz-form-item class="contact-form_item">
             <nz-form-label>Ciudad</nz-form-label>
             <nz-form-control>
-              <input type="text" nz-input formControlName="city"/>
+              <input type="text" nz-input formControlName="cityName"/>
             </nz-form-control>
           </nz-form-item>
         </div>
@@ -39,7 +39,7 @@
           <nz-form-item class="contact-form_item">
             <nz-form-label>Estado / Provincia / Region</nz-form-label>
             <nz-form-control>
-              <input type="text" nz-input formControlName="state"/>
+              <input type="text" nz-input formControlName="provinceName"/>
             </nz-form-control>
           </nz-form-item>
         </div>
@@ -49,7 +49,7 @@
           <nz-form-item class="contact-form_item">
             <nz-form-label>País</nz-form-label>
             <nz-form-control>
-              <nz-select style="width: 100%;" formControlName="country" nzPlaceHolder="Selecciona" nzAllowClear >
+              <nz-select style="width: 100%;" formControlName="countryId" nzPlaceHolder="Selecciona" nzAllowClear >
                 <nz-option *ngFor="let country of countries" [nzValue]="country.id" 
                 [nzLabel]="country.name"></nz-option>
               </nz-select>
@@ -73,7 +73,7 @@
           <nz-form-item class="contact-form_item">
             <nz-form-label>Nombre</nz-form-label>
             <nz-form-control>
-              <input type="text" nz-input formControlName="emergencyName"/>
+              <input type="text" nz-input formControlName="emergencyContactName"/>
             </nz-form-control>
           </nz-form-item>
         </div>
@@ -81,7 +81,7 @@
           <nz-form-item class="contact-form_item">
             <nz-form-label>Celular</nz-form-label>
             <nz-form-control>
-              <input type="text" nz-input formControlName="emergencyPhoneNumber"/>
+              <input type="text" nz-input formControlName="emergencyContactPhone"/>
             </nz-form-control>
           </nz-form-item>
         </div>
@@ -94,9 +94,9 @@
           <nz-form-label>Género</nz-form-label>
           <nz-form-control>
             <nz-radio-group formControlName="gender">
-              <label nz-radio nzValue="0">Femenino</label>
-              <label nz-radio nzValue="1">Masculino</label>
-              <label nz-radio nzValue="2">Prefiero no decir</label>
+              <label nz-radio nzValue="FEMALE">Femenino</label>
+              <label nz-radio nzValue="MALE">Masculino</label>
+              <label nz-radio nzValue="OTHER">Prefiero no decir</label>
             </nz-radio-group>
           </nz-form-control>
         </nz-form-item>
