@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NzFormModule, NzRadioModule, NzInputModule, NzButtonModule, NzIconModule, NzDropDownModule, NzSelectModule, NzNotificationModule } from 'ng-zorro-antd';
+import { NzFormModule, NzRadioModule, NzInputModule, NzButtonModule, NzIconModule, NzDropDownModule, NzSelectModule, NzNotificationModule, NzGridModule  } from 'ng-zorro-antd';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -15,7 +15,7 @@ import { PipesModule } from './pipes/pipes.module';
   ],
   imports: [
     CommonModule,
-    NzFormModule, NzRadioModule, NzInputModule, NzButtonModule, NzIconModule, NzDropDownModule, NzSelectModule, NzNotificationModule,
+    NzFormModule, NzRadioModule, NzInputModule, NzButtonModule, NzIconModule, NzDropDownModule, NzSelectModule, NzNotificationModule, NzGridModule ,
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
@@ -25,7 +25,7 @@ import { PipesModule } from './pipes/pipes.module';
   exports: [
     HeaderComponent,
     FooterComponent,
-    NzFormModule, NzRadioModule, NzInputModule, NzButtonModule, NzIconModule, NzDropDownModule, NzSelectModule, NzNotificationModule,
+    NzFormModule, NzRadioModule, NzInputModule, NzButtonModule, NzIconModule, NzDropDownModule, NzSelectModule, NzNotificationModule, NzGridModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
