@@ -14,7 +14,7 @@ export class VideoCardComponent implements OnInit {
   ngOnInit() {}
 
   goToVideo(video: any){
-    this.router.navigate(['/home/video'], { queryParams: { id: video.vimeoId } });
+    this.router.navigate(['/home/video'], { queryParams: { id: video.id, vimeoId: video.vimeoId } });
   }
 
 }

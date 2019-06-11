@@ -2,22 +2,23 @@
   <div class="video-detail__content flex-row-layout flex-wrap jc-space-between">
     <div class="video-detail__content__description">
       <div class="video-detail__content__description_main">
-        <h1>Título</h1>
+        <h1>{{video.title}}</h1>
         <p>
           <span class="text-bold">Instructor(a): </span>
-          <span>Jessika Castellano , </span>
-          <span>Diana Navarro</span>
+          <span *ngFor="let i of video.instructors; let isLast=last">
+            {{i.name}} {{isLast ? '' : ', '}}
+          </span>
         </p>
         <p>
           <span class="text-bold">Dificultad: </span>
-          <span>Super achorado</span>
+          <span>{{video.difficultyLevel}}</span>
         </p>
       </div>
       <div class="video-detail__content__description_secondary">
         <h2>Sobre la clase</h2>
         <div class="description_item">
           <h3>Lo que harás</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipiscing elit netus, blandit dui conubia quisque venenatis sem malesuada. Parturient per sollicitudin bibendum nascetur tellus volutpat purus est turpis vel semper, etiam condimentum nibh tincidunt vivamus quis tortor convallis mattis facilisi nullam taciti, morbi habitant iaculis dignissim sociis eros ultrices blandit suscipit integer. Congue lectus odio suspendisse enim pulvinar, mollis ac nostra vestibulum turpis leo, dictum quis nunc ad.</p>
+          <p>{{video.description}}</p>
         </div>
         <div class="description_item">
           <h3>Foco del ejercicio</h3>
@@ -47,10 +48,10 @@
         <div class="box-text text-center">
           <p>Únete a nuestro team</p>
           <div>
-            <a href="https://www.facebook.com/groups/459954371422513/" target="_blank">
+            <a [href]="butiqlive_social.FACEBOOK" target="_blank">
               <i nz-icon nzType="facebook" nzTheme="outline"></i>
             </a>
-            <a href="https://www.instagram.com/butiqlive/" target="_blank">
+            <a [href]="butiqlive_social.INSTAGRAM" target="_blank">
               <i nz-icon nzType="instagram" nzTheme="outline"></i>
             </a>
           </div>

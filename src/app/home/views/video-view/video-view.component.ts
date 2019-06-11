@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
+import { VideoService } from 'src/app/core/services/video.service';
+import { Subscription } from 'rxjs';
 import Player from '@vimeo/player';
 
 @Component({
@@ -11,14 +12,39 @@ import Player from '@vimeo/player';
 export class VideoViewComponent implements OnInit {
 
   public paramsHandler: Subscription;
+  public video: any;
+  public videoId: any = 0;
   public vimeoId: any = 0;
   public vimeoURL: string = "https://player.vimeo.com/video/";
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute, private videoService: VideoService ) {
     this.initRouteParamsListener();
   }
 
-  ngAfterViewInit() {
+  getVideo(){
+    this.vimeoURL += this.vimeoId;
+    this.videoService.getVideoById(this.videoId)
+      .subscribe(
+        (response: any)=>{
+          this.video = response.data;
+          this.initVimeo();
+        },
+        (error: any)=>{
+          console.log('error => ', error);
+        }
+      )
+  }
+
+  initRouteParamsListener(): void {
+    this.paramsHandler = this.route.queryParams
+      .subscribe(params => {
+        this.videoId = params.id;
+        this.vimeoId = params.vimeoId;
+        this.getVideo();
+      });
+  }
+
+  initVimeo(){
     var iframe = document.getElementById(this.vimeoId);
     var player = new Player(iframe);
 
@@ -28,7 +54,7 @@ export class VideoViewComponent implements OnInit {
       player.getCurrentTime().then(function(seconds) {
         console.log('get seconds => ', seconds);
       });
-  
+
       player.getDuration().then(function(duration) {
         console.log('get duration => ', duration);
       });
@@ -40,26 +66,13 @@ export class VideoViewComponent implements OnInit {
       player.getCurrentTime().then(function(seconds) {
         console.log('get seconds => ', seconds);
       });
-  
+
       player.getDuration().then(function(duration) {
         console.log('get duration => ', duration);
       });
     });
   }
 
-  getVideo(){
-    this.vimeoURL += this.vimeoId;
-  }
-
-  initRouteParamsListener(): void {
-    this.paramsHandler = this.route.queryParams
-      .subscribe(params => {
-        if(params.id != this.vimeoId) this.vimeoId = params.id;
-        this.getVideo();
-      });
-  }
-
   ngOnInit() {
   }
-
 }

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { BUTIQLIVE_SOCIAL } from 'src/app/core/constants/global.constants';
 
 @Component({
   selector: 'video-detail',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./video-detail.component.scss']
 })
 export class VideoDetailComponent implements OnInit {
+  @Input() public video: any;
+  public butiqlive_social = BUTIQLIVE_SOCIAL;
 
   constructor() { }
 
