@@ -10,9 +10,9 @@ import { SharedModule as AuthSharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
-    ViewsComponent, 
-    LoginViewComponent, 
-    SignupViewComponent, 
+    ViewsComponent,
+    LoginViewComponent,
+    SignupViewComponent,
     ResetPasswordViewComponent
   ],
   imports: [

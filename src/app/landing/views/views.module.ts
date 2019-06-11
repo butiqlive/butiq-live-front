@@ -8,7 +8,7 @@ import { SharedModule as LandingSharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
-    ViewsComponent, 
+    ViewsComponent,
     LandingViewComponent
   ],
   imports: [

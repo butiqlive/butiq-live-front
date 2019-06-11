@@ -9,8 +9,8 @@ import { SharedModule as AccountSharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
-    ViewsComponent, 
-    MembershipViewComponent, 
+    ViewsComponent,
+    MembershipViewComponent,
     ContactViewComponent
   ],
   imports: [
