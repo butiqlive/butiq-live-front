@@ -18,7 +18,7 @@ export class VideoService {
         return this.api.get('api/collection/all');
     }
 
-    getVideosByCollection(collectionId){
+    getCollectionById(collectionId: number){
         return this.api.get(`api/collection/videos/${collectionId}`);
     }
 }

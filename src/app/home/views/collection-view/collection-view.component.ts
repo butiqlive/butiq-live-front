@@ -22,15 +22,14 @@ export class CollectionViewComponent implements OnInit {
     this.paramsHandler = this.route.queryParams
       .subscribe(params => {
         if(params.id != this.collectionId) this.collectionId = params.id;
-        this.getVideos();
+        this.getCollection();
       });
   }
 
-  getVideos(){
-    this.videoService.getVideosByCollection(this.collectionId)
+  getCollection(){
+    this.videoService.getCollectionById(this.collectionId)
       .subscribe(
         (response: any)=>{
-          console.log('response => ', response.data);
           this.collection = response.data;
         },
         (error: any)=>{

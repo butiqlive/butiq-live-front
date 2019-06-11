@@ -1,17 +1,8 @@
-<div class="collection-view">
+<div class="collection-view" *ngIf="collection">
   <h1 class="collection-view__title">{{collection.description}}</h1>
   <div class="collection-view__content">
     <div class="collection-view__content_video" *ngFor="let video of collection.videos">
       <video-card [video]="video"></video-card>
     </div>
-    <!-- <div class="collection-view__content_video">
-      <video-card></video-card>
-    </div>
-    <div class="collection-view__content_video">
-      <video-card></video-card>
-    </div>
-    <div class="collection-view__content_video">
-      <video-card></video-card>
-    </div> -->
   </div>
 </div>

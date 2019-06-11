@@ -32,7 +32,6 @@ export class HomeHeroComponent implements OnInit {
     this.videoService.getCollectionVideos()
       .subscribe(
         (response: any)=>{
-          console.log('response => ', response.data);
           this.listOfCollections = response.data;
         },
         (error: any)=>{
@@ -46,7 +45,7 @@ export class HomeHeroComponent implements OnInit {
     this.getCollections();
   }
 
-  goToCollection(collectionId){
+  goToCollection(collectionId: number){
     this.router.navigate(['/home/collection'], { queryParams: { id: collectionId } });
   }
 }
