@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { VideoService } from 'src/app/core/services/video.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'home-hero',
@@ -7,11 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeHeroComponent implements OnInit {
 
+  public listOfCollections: any;
   public config: any;
 
-  constructor() { }
+  constructor(private videoService: VideoService, private router: Router) { }
 
-  ngOnInit() {
+  reset(){
     this.config = {
       slidesPerView: 1,
       pagination: {
@@ -23,5 +26,27 @@ export class HomeHeroComponent implements OnInit {
       prevEl: '.swiper-button-prev',
       },
     };
+  }
+
+  getCollections(){
+    this.videoService.getCollectionVideos()
+      .subscribe(
+        (response: any)=>{
+          console.log('response => ', response.data);
+          this.listOfCollections = response.data;
+        },
+        (error: any)=>{
+          console.log('error => ', error);
+        }
+      )
+  }
+
+  ngOnInit() {
+    this.reset();
+    this.getCollections();
+  }
+
+  goToCollection(collectionId){
+    this.router.navigate(['/home/collection'], { queryParams: { id: collectionId } });
   }
 }

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
+import { VideoService } from 'src/app/core/services/video.service';
 
 @Component({
   selector: 'app-collection-view',
@@ -7,7 +10,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CollectionViewComponent implements OnInit {
 
-  constructor() { }
+  public paramsHandler: Subscription;
+  public collectionId: any;
+  public collection: any;
+
+  constructor(private route: ActivatedRoute, private videoService: VideoService) {
+    this.initRouteParamsListener();
+  }
+
+  initRouteParamsListener(): void {
+    this.paramsHandler = this.route.queryParams
+      .subscribe(params => {
+        if(params.id != this.collectionId) this.collectionId = params.id;
+        this.getVideos();
+      });
+  }
+
+  getVideos(){
+    this.videoService.getVideosByCollection(this.collectionId)
+      .subscribe(
+        (response: any)=>{
+          console.log('response => ', response.data);
+          this.collection = response.data;
+        },
+        (error: any)=>{
+          console.log('error => ', error);
+        }
+      )
+  }
 
   ngOnInit() {
   }

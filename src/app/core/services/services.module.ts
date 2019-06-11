@@ -7,8 +7,7 @@ import { AuthService } from './auth.service';
 import { UserService } from './user.service';
 import { VideoService } from './video.service';
 import { CountryService } from './country.service';
-
-
+import { VimeoService } from './vimeo.service';
 
 @NgModule({
     providers: [
@@ -19,7 +18,7 @@ import { CountryService } from './country.service';
         UserService,
         VideoService,
         CountryService,
-        
+        VimeoService
     ]
 })
 export class ServicesModule{ }

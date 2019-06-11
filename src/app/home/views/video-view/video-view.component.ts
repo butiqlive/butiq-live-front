@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
+import Player from '@vimeo/player';
 
 @Component({
   selector: 'app-video-view',
@@ -15,6 +16,35 @@ export class VideoViewComponent implements OnInit {
 
   constructor(private route: ActivatedRoute) {
     this.initRouteParamsListener();
+  }
+
+  ngAfterViewInit() {
+    var iframe = document.getElementById(this.vimeoId);
+    var player = new Player(iframe);
+
+    player.on('play', function() {
+      console.log('Played the video');
+
+      player.getCurrentTime().then(function(seconds) {
+        console.log('get seconds => ', seconds);
+      });
+  
+      player.getDuration().then(function(duration) {
+        console.log('get duration => ', duration);
+      });
+    });
+
+    player.on('pause', function() {
+      console.log('Pause the video');
+
+      player.getCurrentTime().then(function(seconds) {
+        console.log('get seconds => ', seconds);
+      });
+  
+      player.getDuration().then(function(duration) {
+        console.log('get duration => ', duration);
+      });
+    });
   }
 
   getVideo(){

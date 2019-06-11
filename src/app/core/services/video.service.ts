@@ -6,12 +6,19 @@ export class VideoService {
 
     constructor(public api: ApiService){}
 
+    getIntroductionVideos(){
+        return this.api.get('api/landing/intro');
+    }
+
     getVideosByCategories(){
         return this.api.get('api/home');
     }
 
-    getIntroductionVideos(){
-        return this.api.get('api/home/intro');
+    getCollectionVideos(){
+        return this.api.get('api/collection/all');
     }
-    
+
+    getVideosByCollection(collectionId){
+        return this.api.get(`api/collection/videos/${collectionId}`);
+    }
 }

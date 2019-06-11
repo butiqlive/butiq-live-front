@@ -2,23 +2,15 @@
   <div class="home-hero__content">
     <swiper [config]="config">
       <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <a [routerLink]="['/home/collection']">
-            <div class="box-video" style="background-image: url('/assets/images/butiqlive-logo.png');">
+        <div class="swiper-slide" *ngFor="let collection of listOfCollections">
+          <div (click)="goToCollection(collection.id)">
+            <div class="box-video"
+            [ngStyle]="{'background-image': 'url(' + collection.previewImage + ')'}">
               <div class="box-video_detail">
-                Nombre de la colección
+                {{collection.description}}
               </div>
             </div>
-          </a>
-        </div>
-        <div class="swiper-slide">
-          <a [routerLink]="['/home/collection']">
-            <div class="box-video" style="background-image: url('/assets/images/butiqlive-logo.png');">
-              <div class="box-video_detail">
-                Nombre de la colección
-              </div>
-            </div>
-          </a>
+          </div>
         </div>
       </div>
     </swiper>
