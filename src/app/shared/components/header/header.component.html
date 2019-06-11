@@ -6,7 +6,7 @@
   </div>
   <div class="header_options flex-row-layout ai-center">
     <div *ngIf="!userIsLogged" class="header_options__buttons" >
-      <a [routerLink]="['/auth']" class="ant-btn ant-btn-default">Iniciar Sesión</a>
+      <a [routerLink]="['/auth']" class="ant-btn ant-btn-default">Inicia Sesión</a>
       <a [routerLink]="['/auth/signup']" class="ant-btn ant-btn-primary">Entrena GRATIS</a>
     </div>
     <div *ngIf="userIsLogged" class="header_options__buttons" >
@@ -29,7 +29,7 @@
       <a nz-dropdown> Menú <i nz-icon type="down"></i></a>
       <ul nz-menu nzSelectable>
         <li nz-menu-item>
-          <a [routerLink]="['/auth']">Iniciar Sesión</a>
+          <a [routerLink]="['/auth']">Inicia Sesión</a>
         </li>
         <li nz-menu-item>
           <a [routerLink]="['/auth/signup']">Entrena GRATIS</a>
