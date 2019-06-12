@@ -10,9 +10,18 @@ export class VideoDetailComponent implements OnInit {
   @Input() public video: any;
   public butiqlive_social = BUTIQLIVE_SOCIAL;
 
+  public videoFocus: any;
+  public videoTarget: any;
+
   constructor() { }
 
   ngOnInit() {
+    this.videoFocus = this.video.workoutParams.filter(workout => {
+              return workout.type === 'FOCUS';
+    });
+    this.videoTarget = this.video.workoutParams.filter(workout => {
+      return workout.type === 'TARGET';
+    });
   }
 
 }

@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { VideoService } from 'src/app/core/services/video.service';
+import { VimeoService } from 'src/app/core/services/vimeo.service';
 import { Subscription } from 'rxjs';
 import Player from '@vimeo/player';
+import { async } from '@angular/core/testing';
 
 @Component({
   selector: 'app-video-view',
@@ -16,8 +18,9 @@ export class VideoViewComponent implements OnInit {
   public videoId: any = 0;
   public vimeoId: any = 0;
   public vimeoURL: string = "https://player.vimeo.com/video/";
+ 
 
-  constructor(private route: ActivatedRoute, private videoService: VideoService ) {
+  constructor(private route: ActivatedRoute, private videoService: VideoService, private vimeoService: VimeoService ) {
     this.initRouteParamsListener();
   }
 
@@ -27,6 +30,7 @@ export class VideoViewComponent implements OnInit {
       .subscribe(
         (response: any)=>{
           this.video = response.data;
+          
           this.initVimeo();
         },
         (error: any)=>{
@@ -48,27 +52,41 @@ export class VideoViewComponent implements OnInit {
     var iframe = document.getElementById(this.vimeoId);
     var player = new Player(iframe);
 
-    player.on('play', function() {
-      console.log('Played the video');
-
-      player.getCurrentTime().then(function(seconds) {
-        console.log('get seconds => ', seconds);
+    player.on('play', () => {
+      player.getCurrentTime().then( seconds => {
+        this.vimeoService.postPlayback({
+          videoId: this.videoId,
+          seconds,
+          action: 'PLAY'
+        })
+        .subscribe(
+          (response: any) =>{
+            
+          },
+          (error: any)=>{
+            console.log('error => ', error);
+          }
+        )
       });
 
-      player.getDuration().then(function(duration) {
-        console.log('get duration => ', duration);
-      });
     });
 
-    player.on('pause', function() {
-      console.log('Pause the video');
+    player.on('pause', () => {
 
-      player.getCurrentTime().then(function(seconds) {
-        console.log('get seconds => ', seconds);
-      });
-
-      player.getDuration().then(function(duration) {
-        console.log('get duration => ', duration);
+      player.getCurrentTime().then( seconds =>{
+        this.vimeoService.postPlayback({
+          videoId: this.videoId,
+          seconds,
+          action: 'PAUSE'
+        })
+        .subscribe(
+          (response: any) =>{
+            
+          },
+          (error: any)=>{
+            console.log('error => ', error);
+          }
+        )
       });
     });
   }

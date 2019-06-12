@@ -22,20 +22,29 @@
         </div>
         <div class="description_item">
           <h3>Foco del ejercicio</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipiscing elit netus, blandit dui conubia quisque venenatis sem malesuada. Parturient per sollicitudin bibendum nascetur tellus volutpat purus est turpis vel semper, etiam condimentum nibh tincidunt vivamus quis tortor convallis mattis facilisi nullam taciti, morbi habitant iaculis dignissim sociis eros ultrices blandit suscipit integer. Congue lectus odio suspendisse enim pulvinar, mollis ac nostra vestibulum turpis leo, dictum quis nunc ad.</p>
+            <ul>
+              <li *ngFor="let focus of videoFocus">
+                {{focus.name}}
+              </li>
+            </ul>
         </div>
         <div class="description_item">
           <h3>Que vas a lograr</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipiscing elit netus, blandit dui conubia quisque venenatis sem malesuada. Parturient per sollicitudin bibendum nascetur tellus volutpat purus est turpis vel semper, etiam condimentum nibh tincidunt vivamus quis tortor convallis mattis facilisi nullam taciti, morbi habitant iaculis dignissim sociis eros ultrices blandit suscipit integer. Congue lectus odio suspendisse enim pulvinar, mollis ac nostra vestibulum turpis leo, dictum quis nunc ad.</p>
+          <ul>
+              <li *ngFor="let target of videoTarget">
+                {{target.name}}
+              </li>
+            </ul>
         </div>
       </div>
       <div class="video-detail__content__description_secondary">
         <h2>Que vás a necesitar</h2>
         <div class="description_list">
           <ul>
-            <li>lalala</li>
-            <li>lalala</li>
-            <li>lalala</li>
+            <li *ngFor="let equip of video.equipments">
+              {{equip.name}}
+            </li>
+           
           </ul>
         </div>
       </div>
