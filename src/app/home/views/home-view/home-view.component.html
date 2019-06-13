@@ -3,8 +3,8 @@
         <home-hero></home-hero>
     </div>
     <div class="home-view__videos">
-        <div *ngFor="let item of videosByCategory">
-            <videos-carousel [data]="item"></videos-carousel>
+        <div *ngFor="let item of videosByCategory; let i = index">
+            <videos-carousel [data]="item" [index]="i"></videos-carousel>
         </div>
     </div>
 </div>

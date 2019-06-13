@@ -8,6 +8,7 @@ declare var Swiper: any;
 })
 export class VideosCarouselComponent implements OnInit {
   @Input() public data: any;
+  @Input() public index: any;
 
   public config: any;
 
@@ -36,8 +37,8 @@ export class VideosCarouselComponent implements OnInit {
       },
       paginationClickable: true,
       navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
+      nextEl: `#next${this.index}`,
+      prevEl: `#prev${this.index}`,
       },
     };
   }
