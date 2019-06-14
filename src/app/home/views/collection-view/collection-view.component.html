@@ -2,7 +2,12 @@
   <h1 class="collection-view__title">{{collection.description}}</h1>
   <div class="collection-view__content">
     <div class="collection-view__content_video" *ngFor="let video of collection.videos">
-      <video-card [video]="video"></video-card>
+      <video-card *ngIf="video.vimeoId" [video]="video"></video-card>
+      <div *ngIf="!video.vimeoId" class="box-rest-day">
+        <div class="box-rest-day__image">
+          <img [src]="video.previewImage" *ngIf="video.previewImage">
+        </div>
+      </div>
     </div>
   </div>
 </div>
