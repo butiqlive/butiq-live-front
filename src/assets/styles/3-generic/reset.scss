@@ -21,7 +21,7 @@ body, caption, th, td, textarea, select, option, legend, fieldset {
 }
 
 body {
-    font-family: $font-primary;
+    font-family: $font-primary !important;
     line-height: 1.5;
 }
 

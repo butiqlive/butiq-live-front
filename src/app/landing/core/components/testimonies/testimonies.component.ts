@@ -21,10 +21,10 @@ export class TestimoniesComponent implements OnInit {
         el: '.swiper-pagination',
         dynamicBullets: true,
       },
-      /* autoplay: {
+      autoplay: {
         delay: 10000,
         disableOnInteraction: false,
-      } */
+      }
     };
 
     this.testimoniesList = new Array(5);
