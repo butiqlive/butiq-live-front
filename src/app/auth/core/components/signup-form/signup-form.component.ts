@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { NotificationUtil } from 'src/app/core/utils/notification.util';
 import { JwtService } from 'src/app/core/services/shared/jwt.service';
+import { LocalStorageService } from 'src/app/core/services/shared/local-storage.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -15,7 +16,8 @@ export class SignupFormComponent implements OnInit {
   public signupFG: FormGroup;
 
   constructor(private fb: FormBuilder, private authService: AuthService,
-    private notification : NotificationUtil, private jwt: JwtService, private router: Router) { }
+    private notification : NotificationUtil, private jwt: JwtService,
+    private router: Router, private localStorage: LocalStorageService) { }
 
   reset(){
     this.signupFG = this.fb.group({
@@ -43,17 +45,33 @@ export class SignupFormComponent implements OnInit {
       }
 
       this.authService.signup(signupRequest).subscribe(
-        (response: any) => {
-          if(response.data.createdUser){
-            this.router.navigateByUrl('/auth');
-            this.notification.success('Estás a un paso de ser más fit', 'Se creó tu cuenta :)');
+        (resp: any) => {
+          if(resp.data.createdUser){
+            const loginRequest = {
+              email: this.signupFG.value.email,
+              password: this.signupFG.value.password
+            }
+
+            this.authService.login(loginRequest)
+              .subscribe(
+                (response: any) => {
+                  if(response.data) {
+                    this.jwt.setToken(response.data.token);
+                    this.localStorage.save('userLogged', response.data.user);
+                    this.notification.success('Estás a un paso de ser más fit', 'Se creó tu cuenta :)');
+                    this.router.navigateByUrl('/home');
+                  }
+                },
+                (error: any) => {
+                  this.notification.error(error.message, 'Hubo un inconveniente');
+                }
+              );
           }
         },
         (error: any) =>{
           this.notification.error(error.message, 'Hubo un inconveniente');
         }
       );
-
     } else{
       this.notification.warning('Verifica los campos e intenta nuevamente', 'Formulario inválido');
     }
