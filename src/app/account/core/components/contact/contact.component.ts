@@ -25,18 +25,18 @@ export class ContactComponent implements OnInit {
 
   reset(){
     this.contactFG = this.fb.group({
-      name: ['',[]],
-      lastName: ['',[]],
-      address: ['',[]],
-      cityName: ['',[]],
-      provinceName: ['',[]],
+      name: ['',[Validators.maxLength(50)]],
+      lastName: ['',[Validators.maxLength(50)]],
+      address: ['',[Validators.maxLength(100)]],
+      cityName: ['',[Validators.maxLength(70)]],
+      provinceName: ['',[Validators.maxLength(70)]],
       countryId: ['',[]],
-      phoneNumber: ['',[]],
-      emergencyContactName: ['',[]],
-      emergencyContactPhone: ['',[]],
+      phoneNumber: ['',[Validators.maxLength(12)]],
+      emergencyContactName: ['',[Validators.maxLength(100)]],
+      emergencyContactPhone: ['',[Validators.maxLength(12)]],
       gender: ['',[]],
       birthDate: ['',[]],
-      weight: ['',[]],
+      weight: [0,[]],
     })
   }
 
