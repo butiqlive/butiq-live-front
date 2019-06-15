@@ -44,7 +44,7 @@ export class LoginFormComponent implements OnInit {
             if(response.data) {
               this.jwt.setToken(response.data.token);
               this.localStorage.save('userLogged', response.data.user);
-              this.notification.success('', 'Bienvenidx de nuevo!');
+              this.notification.success('', 'Bienvenid@ de nuevo a la #Tributiq');
               this.router.navigateByUrl('/home');
             }
           },

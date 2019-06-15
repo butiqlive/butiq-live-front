@@ -46,7 +46,7 @@ export class SignupFormComponent implements OnInit {
         (response: any) => {
           if(response.data.createdUser){
             this.router.navigateByUrl('/auth');
-            this.notification.success('Cuenta creada exitosamente', 'Buena!');
+            this.notification.success('Estás a un paso de ser más fit', 'Se creó tu cuenta :)');
           }
         },
         (error: any) =>{
