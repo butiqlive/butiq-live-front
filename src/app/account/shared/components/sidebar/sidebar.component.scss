@@ -24,3 +24,23 @@
         }
     }
 }
+
+@media screen and (max-width: 520px){
+    .sidebar{
+        width: 90%;
+        margin: auto;
+        float: unset;
+
+        &__avatar{
+            display: none;
+        }
+
+        &__nav{
+            li{
+                padding: 16px 8px 16px 0;
+                display: inline-block;
+            }
+        }
+    }
+
+}
