@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { VideoService } from 'src/app/core/services/video.service';
+import { HttpErrorResponse } from '@angular/common/http';
+import { NotificationUtil } from 'src/app/core/utils/notification.util';
 
 @Component({
   selector: 'app-collection-view',
@@ -14,7 +16,8 @@ export class CollectionViewComponent implements OnInit {
   public collectionId: any;
   public collection: any;
 
-  constructor(private route: ActivatedRoute, private videoService: VideoService) {
+  constructor(private route: ActivatedRoute, private videoService: VideoService,
+    private notification: NotificationUtil) {
     this.initRouteParamsListener();
   }
 
@@ -32,8 +35,12 @@ export class CollectionViewComponent implements OnInit {
         (response: any)=>{
           this.collection = response.data;
         },
-        (error: any)=>{
-          console.log('error => ', error);
+        (error: HttpErrorResponse) => {
+          if(error.error.data){
+            this.notification.error(error.error.data.msg, 'Algo malo pasó');
+          } else{
+            this.notification.error(error.message , 'Algo malo pasó');
+          }
         }
       )
   }

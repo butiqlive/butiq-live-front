@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { VideoService } from 'src/app/core/services/video.service';
 import { Router } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
+import { NotificationUtil } from 'src/app/core/utils/notification.util';
 
 @Component({
   selector: 'home-hero',
@@ -12,7 +14,8 @@ export class HomeHeroComponent implements OnInit {
   public listOfCollections: any;
   public config: any;
 
-  constructor(private videoService: VideoService, private router: Router) { }
+  constructor(private videoService: VideoService,
+    private router: Router, private notification: NotificationUtil) { }
 
   reset(){
     this.config = {
@@ -34,8 +37,12 @@ export class HomeHeroComponent implements OnInit {
         (response: any)=>{
           this.listOfCollections = response.data;
         },
-        (error: any)=>{
-          console.log('error => ', error);
+        (error: HttpErrorResponse) => {
+          if(error.error.data){
+            this.notification.error(error.error.data.msg, 'Algo malo pasó');
+          } else{
+            this.notification.error(error.message , 'Algo malo pasó');
+          }
         }
       )
   }

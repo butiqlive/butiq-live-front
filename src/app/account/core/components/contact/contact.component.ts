@@ -5,6 +5,7 @@ import { CountryService } from 'src/app/core/services/country.service';
 import { UserService } from 'src/app/core/services/user.service';
 import { GENDER } from 'src/app/core/constants/global.constants';
 import { User } from 'src/app/shared/models/user.model';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'contact-form',
@@ -48,8 +49,12 @@ export class ContactComponent implements OnInit {
             this.countries = response.data;
           }
         },
-        (error: any) => {
-          this.notification.error(error.message, 'Hubo un inconveniente');
+        (error: HttpErrorResponse) => {
+          if(error.error.data){
+            this.notification.error(error.error.data.msg, 'Algo malo pasó');
+          } else{
+            this.notification.error(error.message , 'Algo malo pasó');
+          }
         }
       );
   }
@@ -63,8 +68,12 @@ export class ContactComponent implements OnInit {
             this.contactFG.patchValue(this.user);
           }
         },
-        (error: any) => {
-          this.notification.error(error.message, 'Hubo un inconveniente');
+        (error: HttpErrorResponse) => {
+          if(error.error.data){
+            this.notification.error(error.error.data.msg, 'Algo malo pasó');
+          } else{
+            this.notification.error(error.message , 'Algo malo pasó');
+          }
         }
       );
   }
@@ -85,8 +94,12 @@ export class ContactComponent implements OnInit {
               this.notification.success('Se guardaron tus datos satisfactoriamente', 'Listo!');
             }
           },
-          (error: any) => {
-            this.notification.error(error.message, 'Hubo un inconveniente');
+          (error: HttpErrorResponse) => {
+            if(error.error.data){
+              this.notification.error(error.error.data.msg, 'Algo malo pasó');
+            } else{
+              this.notification.error(error.message , 'Algo malo pasó');
+            }
           }
         );
     } else{

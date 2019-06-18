@@ -4,6 +4,7 @@ import { AuthService } from 'src/app/core/services/auth.service';
 import { NotificationUtil } from 'src/app/core/utils/notification.util';
 import { JwtService } from 'src/app/core/services/shared/jwt.service';
 import { LocalStorageService } from 'src/app/core/services/shared/local-storage.service';
+import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 
 @Component({
@@ -62,14 +63,22 @@ export class SignupFormComponent implements OnInit {
                     this.router.navigateByUrl('/home');
                   }
                 },
-                (error: any) => {
-                  this.notification.error(error.message, 'Hubo un inconveniente');
+                (error: HttpErrorResponse) => {
+                  if(error.error.data){
+                    this.notification.error(error.error.data.msg, 'Algo malo pasó');
+                  } else{
+                    this.notification.error(error.message , 'Algo malo pasó');
+                  }
                 }
               );
           }
         },
-        (error: any) =>{
-          this.notification.error(error.message, 'Hubo un inconveniente');
+        (error: HttpErrorResponse) => {
+          if(error.error.data){
+            this.notification.error(error.error.data.msg, 'Algo malo pasó');
+          } else{
+            this.notification.error(error.message , 'Algo malo pasó');
+          }
         }
       );
     } else{

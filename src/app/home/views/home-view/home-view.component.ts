@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { VideoService } from 'src/app/core/services/video.service';
 import { NotificationUtil } from 'src/app/core/utils/notification.util';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-home-view',
@@ -19,8 +20,12 @@ export class HomeViewComponent implements OnInit {
         (response: any)=>{
           this.videosByCategory = response.data;
         },
-        (error: any)=>{
-          this.notification.error(error.message, 'Hubo un problema');
+        (error: HttpErrorResponse) => {
+          if(error.error.data){
+            this.notification.error(error.error.data.msg, 'Algo malo pasó');
+          } else{
+            this.notification.error(error.message , 'Algo malo pasó');
+          }
         }
       );
   }

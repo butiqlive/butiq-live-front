@@ -5,6 +5,7 @@ import { JwtService } from 'src/app/core/services/shared/jwt.service';
 import { NotificationUtil } from 'src/app/core/utils/notification.util';
 import { Router } from '@angular/router';
 import { LocalStorageService } from 'src/app/core/services/shared/local-storage.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-login-form',
@@ -16,7 +17,7 @@ export class LoginFormComponent implements OnInit {
   public loginFG: FormGroup;
 
   constructor(private fb: FormBuilder, private authService: AuthService,
-    private jwt: JwtService, private notification: NotificationUtil, 
+    private jwt: JwtService, private notification: NotificationUtil,
     private localStorage: LocalStorageService, private router: Router) { }
 
   reset(){
@@ -48,8 +49,12 @@ export class LoginFormComponent implements OnInit {
               this.router.navigateByUrl('/home');
             }
           },
-          (error: any) => {
-            this.notification.error(error.message, 'Hubo un inconveniente');
+          (error: HttpErrorResponse) => {
+            if(error.error.data){
+              this.notification.error(error.error.data.msg, 'Algo malo pasó');
+            } else{
+              this.notification.error(error.message , 'Algo malo pasó');
+            }
           }
         );
 
