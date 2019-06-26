@@ -6,8 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./testimonies.component.scss']
 })
 export class TestimoniesComponent implements OnInit {
-
-  public testimoniesList: any;
   public config: any;
 
   constructor() { }
@@ -26,8 +24,6 @@ export class TestimoniesComponent implements OnInit {
         disableOnInteraction: false,
       }
     };
-
-    this.testimoniesList = new Array(5);
   }
 
   ngOnInit() {
