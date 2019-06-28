@@ -13,11 +13,14 @@
           <span class="text-bold">Dificultad: </span>
           <span>{{video.difficultyLevel}}</span>
         </p>
+        <p>
+          <span class="text-bold">¿Que vás a necesitar? </span>
+          <span *ngFor="let equip of video.equipments" > {{equip.name}}</span>
+        </p>
       </div>
       <div class="video-detail__content__description_secondary">
         <h2>Sobre la clase</h2>
         <div class="description_item">
-          <h3>Lo que harás</h3>
           <p>{{video.description}}</p>
         </div>
         <div class="description_item">
@@ -28,26 +31,6 @@
               </li>
             </ul>
         </div>
-        <div class="description_item">
-          <h3>Que vas a lograr</h3>
-          <ul>
-              <li *ngFor="let target of videoTarget">
-                {{target.name}}
-              </li>
-            </ul>
-        </div>
-      </div>
-      <div class="video-detail__content__description_secondary">
-        <h2>Que vás a necesitar</h2>
-        <div class="description_list">
-          <ul>
-            <li *ngFor="let equip of video.equipments">
-              {{equip.name}}
-            </li>
-           
-          </ul>
-        </div>
-      </div>
     </div>
     <div class="video-detail__content__social">
       <div class="video-detail__content__social_box">

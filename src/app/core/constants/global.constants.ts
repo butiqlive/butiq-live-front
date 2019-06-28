@@ -10,6 +10,9 @@ export const BUTIQLIVE_SOCIAL = {
 
 const VIMEO_URL = "https://player.vimeo.com/video/";
 
+const INVALID_TOKEN = "INVALID_TOKEN";
+
 export {
-    VIMEO_URL
+    VIMEO_URL,
+    INVALID_TOKEN
 }
