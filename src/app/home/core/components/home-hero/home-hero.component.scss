@@ -1,5 +1,27 @@
+@import "../../../../../assets/styles/1-settings/colors.scss";
+
 .home-hero{
     margin-bottom: 48px;
+
+    &__title{
+        &_main{
+            margin: 10px 0;
+            text-align: center;
+
+            span{
+                background: $color-accent;
+                font-size: 2rem;
+            }
+        }
+
+        &_subtitle{
+            h2{
+                color: $color-accent;
+                font-size: 18px;
+                margin: 20px 0;
+            }
+        }
+    }
 
     &__content{
         position: relative;

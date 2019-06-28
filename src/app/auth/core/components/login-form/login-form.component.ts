@@ -51,7 +51,9 @@ export class LoginFormComponent implements OnInit {
           },
           (error: HttpErrorResponse) => {
             if(error.error.data){
-              this.notification.error(error.error.data.msg, 'Algo malo pasó');
+              if(this.authService.isTokenValid(error.error.data.error)){
+                this.notification.error(error.error.data.msg, 'Algo malo pasó');
+              }
             } else{
               this.notification.error(error.message , 'Algo malo pasó');
             }

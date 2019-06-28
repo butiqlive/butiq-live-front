@@ -21,4 +21,13 @@ export class AuthService {
         this.router.navigateByUrl('/');
     }
 
+    isTokenValid(message: string){
+        if(message && message.indexOf('INVALID TOKEN') > -1) {
+            this.logout();
+            return false;
+        } else {
+            return true;
+        }
+    }
+
 }

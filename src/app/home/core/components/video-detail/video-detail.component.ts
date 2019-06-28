@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { BUTIQLIVE_SOCIAL } from 'src/app/core/constants/global.constants';
+import { DIFFICULTY, BUTIQLIVE_SOCIAL } from 'src/app/core/constants/global.constants';
 
 @Component({
   selector: 'video-detail',
@@ -9,6 +9,7 @@ import { BUTIQLIVE_SOCIAL } from 'src/app/core/constants/global.constants';
 export class VideoDetailComponent implements OnInit {
   @Input() public video: any;
   public butiqlive_social = BUTIQLIVE_SOCIAL;
+  public butiqlive_difficulty = DIFFICULTY;
 
   public videoFocus: any;
   public videoTarget: any;

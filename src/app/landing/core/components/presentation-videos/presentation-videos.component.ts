@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { VideoService } from 'src/app/core/services/video.service';
 import { NotificationUtil } from 'src/app/core/utils/notification.util';
 import { HttpErrorResponse } from '@angular/common/http';
+import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
   selector: 'app-presentation-videos',
@@ -14,7 +15,8 @@ export class PresentationVideosComponent implements OnInit {
   public vimeoURL: string;
   public config: any;
 
-  constructor(private videoService: VideoService, private notification: NotificationUtil) { }
+  constructor(private videoService: VideoService, private notification: NotificationUtil,
+    private authService: AuthService) { }
 
   reset(){
     this.vimeoURL = "https://player.vimeo.com/video/";
@@ -47,7 +49,9 @@ export class PresentationVideosComponent implements OnInit {
         },
         (error: HttpErrorResponse) => {
           if(error.error.data){
-            this.notification.error(error.error.data.msg, 'Algo malo pasó');
+            if(this.authService.isTokenValid(error.error.data.error)){
+              this.notification.error(error.error.data.msg, 'Algo malo pasó');
+            }
           } else{
             this.notification.error(error.message , 'Algo malo pasó');
           }

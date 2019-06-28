@@ -3,6 +3,7 @@ import { VideoService } from 'src/app/core/services/video.service';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { NotificationUtil } from 'src/app/core/utils/notification.util';
+import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
   selector: 'home-hero',
@@ -14,7 +15,7 @@ export class HomeHeroComponent implements OnInit {
   public listOfCollections: any;
   public config: any;
 
-  constructor(private videoService: VideoService,
+  constructor(private videoService: VideoService, private authService: AuthService,
     private router: Router, private notification: NotificationUtil) { }
 
   reset(){
@@ -39,7 +40,9 @@ export class HomeHeroComponent implements OnInit {
         },
         (error: HttpErrorResponse) => {
           if(error.error.data){
-            this.notification.error(error.error.data.msg, 'Algo malo pasó');
+            if(this.authService.isTokenValid(error.error.data.error)){
+              this.notification.error(error.error.data.msg, 'Algo malo pasó');
+            }
           } else{
             this.notification.error(error.message , 'Algo malo pasó');
           }

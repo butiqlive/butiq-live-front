@@ -10,7 +10,7 @@
       <a [routerLink]="['/auth/signup']" class="ant-btn ant-btn-primary">Entrena GRATIS</a>
     </div>
     <div *ngIf="userIsLogged" class="header_options__buttons" >
-      <a [routerLink]="['/home']">Videos</a>
+      <a [routerLink]="['/home']" *ngIf="showVideoLink">Videos</a>
       <nz-dropdown class="header_dropdown" [nzPlacement]="'bottomRight'">
         <a nz-dropdown> Mi cuenta <i nz-icon type="down"></i></a>
         <ul nz-menu nzSelectable>
@@ -37,7 +37,7 @@
       </ul>
     </nz-dropdown>
     <nz-dropdown [nzPlacement]="'bottomRight'" *ngIf="userIsLogged" class="header_dropdown">
-      <a [routerLink]="['/home']">Videos</a>
+      <a [routerLink]="['/home']" *ngIf="showVideoLink">Videos</a>
       <a nz-dropdown> Mi cuenta <i nz-icon type="down"></i></a>
       <ul nz-menu nzSelectable>
         <li nz-menu-item>

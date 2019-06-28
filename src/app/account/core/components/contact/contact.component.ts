@@ -6,6 +6,7 @@ import { UserService } from 'src/app/core/services/user.service';
 import { GENDER } from 'src/app/core/constants/global.constants';
 import { User } from 'src/app/shared/models/user.model';
 import { HttpErrorResponse } from '@angular/common/http';
+import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
   selector: 'contact-form',
@@ -22,7 +23,8 @@ export class ContactComponent implements OnInit {
   constructor(private fb: FormBuilder,
               private notification: NotificationUtil,
               private countryService: CountryService,
-              private userService: UserService) { }
+              private userService: UserService,
+              private authService: AuthService) { }
 
   reset(){
     this.contactFG = this.fb.group({
@@ -51,7 +53,9 @@ export class ContactComponent implements OnInit {
         },
         (error: HttpErrorResponse) => {
           if(error.error.data){
-            this.notification.error(error.error.data.msg, 'Algo malo pasó');
+            if(this.authService.isTokenValid(error.error.data.error)){
+              this.notification.error(error.error.data.msg, 'Algo malo pasó');
+            }
           } else{
             this.notification.error(error.message , 'Algo malo pasó');
           }
@@ -70,7 +74,9 @@ export class ContactComponent implements OnInit {
         },
         (error: HttpErrorResponse) => {
           if(error.error.data){
-            this.notification.error(error.error.data.msg, 'Algo malo pasó');
+            if(this.authService.isTokenValid(error.error.data.error)){
+              this.notification.error(error.error.data.msg, 'Algo malo pasó');
+            }
           } else{
             this.notification.error(error.message , 'Algo malo pasó');
           }
@@ -96,7 +102,9 @@ export class ContactComponent implements OnInit {
           },
           (error: HttpErrorResponse) => {
             if(error.error.data){
-              this.notification.error(error.error.data.msg, 'Algo malo pasó');
+              if(this.authService.isTokenValid(error.error.data.error)){
+                this.notification.error(error.error.data.msg, 'Algo malo pasó');
+              }
             } else{
               this.notification.error(error.message , 'Algo malo pasó');
             }

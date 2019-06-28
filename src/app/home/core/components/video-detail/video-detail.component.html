@@ -11,11 +11,13 @@
         </p>
         <p>
           <span class="text-bold">Dificultad: </span>
-          <span>{{video.difficultyLevel}}</span>
+          <span>{{butiqlive_difficulty[video.difficultyLevel]}}</span>
         </p>
         <p>
-          <span class="text-bold">¿Que vás a necesitar? </span>
-          <span *ngFor="let equip of video.equipments" > {{equip.name}}</span>
+          <span class="text-bold">Qué vas a necesitar: </span>
+          <span *ngFor="let equip of video.equipments; let isLast=last">
+            {{equip.name}} {{isLast ? '' : ', '}}
+          </span>
         </p>
       </div>
       <div class="video-detail__content__description_secondary">
@@ -23,14 +25,7 @@
         <div class="description_item">
           <p>{{video.description}}</p>
         </div>
-        <div class="description_item">
-          <h3>Foco del ejercicio</h3>
-            <ul>
-              <li *ngFor="let focus of videoFocus">
-                {{focus.name}}
-              </li>
-            </ul>
-        </div>
+      </div>
     </div>
     <div class="video-detail__content__social">
       <div class="video-detail__content__social_box">

@@ -4,10 +4,10 @@ import { VIMEO_URL } from '../../../core/constants/global.constants';
 import { VideoService } from 'src/app/core/services/video.service';
 import { VimeoService } from 'src/app/core/services/vimeo.service';
 import { Subscription } from 'rxjs';
-import Player from '@vimeo/player';
-import { async } from '@angular/core/testing';
 import { HttpErrorResponse } from '@angular/common/http';
 import { NotificationUtil } from 'src/app/core/utils/notification.util';
+import Player from '@vimeo/player';
+import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
   selector: 'app-video-view',
@@ -23,7 +23,8 @@ export class VideoViewComponent implements OnInit {
   public vimeoURL: string = VIMEO_URL;
 
   constructor(private route: ActivatedRoute, private videoService: VideoService,
-    private vimeoService: VimeoService, private notification: NotificationUtil) {
+    private vimeoService: VimeoService, private notification: NotificationUtil,
+    private authService: AuthService) {
     this.initRouteParamsListener();
   }
 
@@ -37,7 +38,9 @@ export class VideoViewComponent implements OnInit {
         },
         (error: HttpErrorResponse) => {
           if(error.error.data){
-            this.notification.error(error.error.data.msg, 'Algo malo pasó');
+            if(this.authService.isTokenValid(error.error.data.error)){
+              this.notification.error(error.error.data.msg, 'Algo malo pasó');
+            }
           } else{
             this.notification.error(error.message , 'Algo malo pasó');
           }
@@ -69,7 +72,9 @@ export class VideoViewComponent implements OnInit {
           (response: any) =>{},
           (error: HttpErrorResponse) => {
             if(error.error.data){
-              this.notification.error(error.error.data.msg, 'Algo malo pasó');
+              if(this.authService.isTokenValid(error.error.data.error)){
+                this.notification.error(error.error.data.msg, 'Algo malo pasó');
+              }
             } else{
               this.notification.error(error.message , 'Algo malo pasó');
             }
@@ -90,7 +95,9 @@ export class VideoViewComponent implements OnInit {
           (response: any) =>{},
           (error: HttpErrorResponse) => {
             if(error.error.data){
-              this.notification.error(error.error.data.msg, 'Algo malo pasó');
+              if(this.authService.isTokenValid(error.error.data.error)){
+                this.notification.error(error.error.data.msg, 'Algo malo pasó');
+              }
             } else{
               this.notification.error(error.message , 'Algo malo pasó');
             }
@@ -110,7 +117,9 @@ export class VideoViewComponent implements OnInit {
           (response: any) =>{},
           (error: HttpErrorResponse) => {
             if(error.error.data){
-              this.notification.error(error.error.data.msg, 'Algo malo pasó');
+              if(this.authService.isTokenValid(error.error.data.error)){
+                this.notification.error(error.error.data.msg, 'Algo malo pasó');
+              }
             } else{
               this.notification.error(error.message , 'Algo malo pasó');
             }

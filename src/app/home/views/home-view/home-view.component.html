@@ -3,6 +3,9 @@
         <home-hero></home-hero>
     </div>
     <div class="home-view__videos">
+        <div class="home-view__videos_title">
+            <h2>Descubre la clase ideal para ti</h2>
+        </div>
         <div *ngFor="let item of videosByCategory; let i = index">
             <videos-carousel [data]="item" [index]="i"></videos-carousel>
         </div>

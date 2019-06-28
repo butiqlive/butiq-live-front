@@ -1,3 +1,5 @@
+@import "../../../../assets/styles/1-settings/colors.scss";
+
 .home-view{
     width: 80%;
     margin: auto;
@@ -8,5 +10,13 @@
 
     &__videos{
         padding: 0 28px;
+
+        &_title{
+            h2{
+                color: $color-accent;
+                font-size: 18px;
+                margin: 20px 0;
+            }
+        }
     }
 }

@@ -11,12 +11,15 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
 
   public userIsLogged: boolean;
+  public showVideoLink: boolean;
 
   constructor(private authService: AuthService, private jwt: JwtService, private router: Router) {
     this.userIsLogged = this.jwt.getToken() ? true : false;
   }
 
   ngOnInit() {
+    var location = window.location.href;
+    this.showVideoLink = location.indexOf('home') > -1 ? false : true;
   }
 
   goToHome(){
