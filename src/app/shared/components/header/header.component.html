@@ -12,7 +12,7 @@
     <div *ngIf="userIsLogged" class="header_options__buttons" >
       <a [routerLink]="['/home']" *ngIf="showVideoLink">Videos</a>
       <nz-dropdown class="header_dropdown" [nzPlacement]="'bottomRight'">
-        <a nz-dropdown> Mi cuenta <i nz-icon type="down"></i></a>
+        <a nz-dropdown nzTrigger="click"> Mi cuenta <i nz-icon type="down"></i></a>
         <ul nz-menu nzSelectable>
           <li nz-menu-item>
             <a [routerLink]="['/account/contact']">Cuenta</a>
@@ -26,7 +26,7 @@
   </div>
   <div class="header_hamburger">
     <nz-dropdown [nzPlacement]="'bottomRight'" *ngIf="!userIsLogged" class="header_dropdown">
-      <a nz-dropdown> Menú <i nz-icon type="down"></i></a>
+      <a nz-dropdown nzTrigger="click"> Menú <i nz-icon type="down"></i></a>
       <ul nz-menu nzSelectable>
         <li nz-menu-item>
           <a [routerLink]="['/auth']">Inicia Sesión</a>
@@ -38,7 +38,7 @@
     </nz-dropdown>
     <nz-dropdown [nzPlacement]="'bottomRight'" *ngIf="userIsLogged" class="header_dropdown">
       <a [routerLink]="['/home']" *ngIf="showVideoLink">Videos</a>
-      <a nz-dropdown> Mi cuenta <i nz-icon type="down"></i></a>
+      <a nz-dropdown nzTrigger="click"> Mi cuenta <i nz-icon type="down"></i></a>
       <ul nz-menu nzSelectable>
         <li nz-menu-item>
           <a [routerLink]="['/account/contact']">Cuenta</a>
