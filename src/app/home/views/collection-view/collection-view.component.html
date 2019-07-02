@@ -5,7 +5,7 @@
       <video-card *ngIf="video.vimeoId" [video]="video"></video-card>
       <div *ngIf="!video.vimeoId" class="box-rest-day">
         <div class="box-rest-day__image">
-          <img [src]="video.previewImage" *ngIf="video.previewImage">
+          <img [src]="video.collectionVideo.previewImage" *ngIf="video.collectionVideo.previewImage">
         </div>
       </div>
     </div>
