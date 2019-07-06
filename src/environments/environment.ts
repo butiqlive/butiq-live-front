@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  backendUrl: 'http://api.butiqstudio.com/'
+  backendUrl: 'https://api.butiqlive.com/'
 };
 
 /*
